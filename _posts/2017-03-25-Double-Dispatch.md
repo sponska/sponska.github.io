@@ -51,7 +51,7 @@ public class Dispatch{
 위 프로그램에서 main을 실행하게 되면 Service 클래스에 정의된 run 메소드 중 어느 것이 실행된다는 것은 런타임 시점이 아닌 컴파일 시점에서 알 수 있다.
 # 동적인 디스패치 (Dynamic Dispatch)
 >## 코드 이해 를 위한 사전 지식
->### MethodSignature
+>### 1.MethodSignature
 >Quoting from Oracle Docs:
 >Definition: Two of the components of a method declaration comprise the method signature—the method's name and the parameter types.
 >![](https://i.stack.imgur.com/NLlbQ.png)
@@ -93,8 +93,8 @@ public class Dispatch{
 # 더블 디스패치 (Double Dispatch)
 
 >## 코드 이해 를 위한 사전 지식
->[1.Lambda Expressions](http://jdm.kr/blog/181)
->[2.Method Reference](http://multifrontgarden.tistory.com/126)
+>### [1.Lambda Expressions](http://jdm.kr/blog/181)
+>### [2.Method Reference](http://multifrontgarden.tistory.com/126)
 
 페이스북, 트위터에 사진과 텍스트를 올려주는 그런 요구사항이 들어왔다고 가정하자. 그래서 아래와 같이 만들었다.
 
