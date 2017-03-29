@@ -20,7 +20,7 @@ Double Dispatch
 2. (편지・소포・메시지를) 보내다   
 3. 신속히 해...
 
-#### 프로그램에서의 의미
+### 프로그램에서의 의미
 프로그램이 어떤 메소드를 호출할 것인가를 결정하여 그것을 실행하는 과정을 말한다.
 
 # 정적인 디스패치 (Static Dispatch)
@@ -87,7 +87,6 @@ public class Dispatch{
 
 >## 코드 이해 를 위한 사전 지식
 >[1.Lambda Expressions](http://jdm.kr/blog/181)
->
 >[2.Method Reference](http://multifrontgarden.tistory.com/126)
 
 페이스북, 트위터에 사진과 텍스트를 올려주는 그런 요구사항이 들어왔다고 가정하자. 그래서 아래와 같이 만들었다.
@@ -164,6 +163,7 @@ static class Picture implements Post {
  
 변경된 부분만 살펴보자. 우리는 postOn안에 instanceof를 사용해서 Facebook일 때는 Facebook 비지니스로직, Twitter일때는 Twitter의 비지니스로직으로 변경하였다. 그렇게 썩 마음에 드는 코드는 아니지만 코드를 돌려보면 우리가 원하는 결과는 나온다. 그런데 갑자기 다른 SNS가 추가 되었다. Linkedin 이라는 SNS가 추가 되어 다시 개발하게 되었다.
 그래서 다음과 같이 추가 하였다.
+
 ```java
 static class Linkedin implements SNS {
 }
@@ -195,6 +195,7 @@ static class Picture implements Post {
 }
 ```
 정상작동 할 것처럼 보이지만 실수로 우리는 Picture에 Linkedin을 만들지 않았다. 물론 간단하니까 그냥 한눈에 보이지만 어마어마하게 많은 로직이 숨어 있다면 찾기도 어려울지도 모른다. 또한 또다른 SNS가 추가 될 때 마다 맘에 안드는 if문 계속 추가 해야되는 단점이 숨어 있다. 물론 그렇게 해도 상관은 없다. 하지만 우리는 좀 더 나은 방법을 원한다. 그래서 아래와 같이 변경을 하였다.
+
 ```java
 interface Post {
   void postOn(Facebook facebook);
@@ -238,6 +239,7 @@ static class Twitter implements SNS {
 ```
 
 Post를 SNS를 의존하는게 아니라 구현체인 Facebook과 Twitter를 의존하고 있다. 그렇게 나쁘지 않은 방식이다. 하지만 여기에서도 다른 SNS 추가 되면 Post 인터페이스를 수정해야 하고 그에 따른 구현체 Text와 Picture 클래스 모두 다 수정해야하는 단점이 있다. 더욱 문제가 있는 것은 실행하는 main메서드가 컴파일이 안된다.
+
 ```java
 public static void main(String[] args) {
   List<Post> posts = Arrays.asList(new Text(), new Picture());
