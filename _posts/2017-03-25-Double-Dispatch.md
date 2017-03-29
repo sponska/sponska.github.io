@@ -19,11 +19,12 @@ Double Dispatch
 1. (특히 특별한 목적을 위해) 보내다   
 2. (편지・소포・메시지를) 보내다   
 3. 신속히 해...
+
 ####프로그램에서의 의미
 프로그램이 어떤 메소드를 호출할 것인가를 결정하여 그것을 실행하는 과정을 말한다.
 
 #정적인 디스패치 (Static Dispatch)
-```Java
+```java
 public class Dispatch{
  
   static class Service{
@@ -50,7 +51,7 @@ public class Dispatch{
 >Definition: Two of the components of a method declaration comprise the method signature—the method's name and the parameter types.
 >![](https://i.stack.imgur.com/NLlbQ.png)
 >자바에서 MethodSignature 는 메소드 이름 + 파라미터 이다. 반환값(return)은 포함하지 않는다.
-```Java
+```java
 public class Dispatch{
  
   static abstract class Service{
