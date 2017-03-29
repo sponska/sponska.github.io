@@ -13,17 +13,17 @@ author: SiHun
 Double Dispatch
 ===============
 [토비의 봄 TV 1회 - 재사용성과 다이나믹 디스패치, 더블 디스패치](https://www.youtube.com/watch?v=s-tXAHub6vg&t=85s)
-#Dispatch
-##의미
-###사전적 의미
+# Dispatch
+## 의미
+### 사전적 의미
 1. (특히 특별한 목적을 위해) 보내다   
 2. (편지・소포・메시지를) 보내다   
 3. 신속히 해...
 
-####프로그램에서의 의미
+#### 프로그램에서의 의미
 프로그램이 어떤 메소드를 호출할 것인가를 결정하여 그것을 실행하는 과정을 말한다.
 
-#정적인 디스패치 (Static Dispatch)
+# 정적인 디스패치 (Static Dispatch)
 ```java
 public class Dispatch{
  
@@ -44,9 +44,9 @@ public class Dispatch{
 }
 ```
 위 프로그램에서 main을 실행하게 되면 Service 클래스에 정의된 run 메소드 중 어느 것이 실행된다는 것은 런타임 시점이 아닌 컴파일 시점에서 알 수 있다.
-#동적인 디스패치 (Dynamic Dispatch)
->##코드 이해 를 위한 사전 지식
->###MethodSignature
+# 동적인 디스패치 (Dynamic Dispatch)
+>## 코드 이해 를 위한 사전 지식
+>### MethodSignature
 >Quoting from Oracle Docs:
 >Definition: Two of the components of a method declaration comprise the method signature—the method's name and the parameter types.
 >![](https://i.stack.imgur.com/NLlbQ.png)
@@ -83,9 +83,9 @@ public class Dispatch{
 
 출처: http://feco.tistory.com/86 [wmJun]
 
-#더블 디스패치 (Double Dispatch)
+# 더블 디스패치 (Double Dispatch)
 
->##코드 이해 를 위한 사전 지식
+>## 코드 이해 를 위한 사전 지식
 >[1.Lambda Expressions](http://jdm.kr/blog/181)
 >
 >[2.Method Reference](http://multifrontgarden.tistory.com/126)
