@@ -43,6 +43,10 @@ public class Dispatch{
   
 }
 ```
+
+
+
+
 위 프로그램에서 main을 실행하게 되면 Service 클래스에 정의된 run 메소드 중 어느 것이 실행된다는 것은 런타임 시점이 아닌 컴파일 시점에서 알 수 있다.
 # 동적인 디스패치 (Dynamic Dispatch)
 >## 코드 이해 를 위한 사전 지식
@@ -79,6 +83,7 @@ public class Dispatch{
  
 }
 ```
+
 위 프로그램에서 main을 실행하게 되면 어떤 클래스의 run 메소드가 실행될지는 컴파일 시점에 알 수 없다.그러나 실제 실행을 해보면 "1"이 출력될 것임은 자명하다. 이때 다이나믹 디스패치가 일어난다.
 
 출처: http://feco.tistory.com/86 [wmJun]
@@ -90,6 +95,7 @@ public class Dispatch{
 >[2.Method Reference](http://multifrontgarden.tistory.com/126)
 
 페이스북, 트위터에 사진과 텍스트를 올려주는 그런 요구사항이 들어왔다고 가정하자. 그래서 아래와 같이 만들었다.
+
 ```java
 interface Post {
   void postOn(SNS s);
@@ -126,6 +132,7 @@ public static void main(String[] args) {
   posts.forEach(p -> sns.forEach(s -> p.postOn(s)));
 }
 ```
+
 나름 확장성을 고려하여 Post와 SNS를 인터페이스로 만들고 Post는 SNS 인터페이스를 의존하게 만들었다. 출력 결과는 다음과 같다.
 
 text - Facebook
@@ -246,9 +253,12 @@ public static void main(String[] args) {
   List<SNS> sns = Arrays.asList(new Facebook(), new Twitter(), new Linkedin());
   posts.forEach(p -> sns.forEach(s -> p.postOn(s)));
 }
+```
+
 위의 코드를 작성해보면 컴파일 에러가 발생한다. p.postOn(s) 이부분에 에러가 발생하는데 에러를 보자면 SNS 타입을 받는 메서드를 찾을 수 없다고 나온다. 왜 일까? 메서드 오버로딩은 정적 디스패치를 한다. 런타임 시점이 아니라 컴파일하는 시점에 파라미터의 타입을 정확히 체크를 해서 해당하는 메서드를 정해놔야 한다. 하지만 우리는 SNS라는 추상화된 객체를 넣어서 컴파일 타임에 에러가 발생한 것이다. 까다롭다. 이대로 포기 하면 안된다.
 기존 코드도 변경하지 않고 좀 더 확장성있게 만들 수는 없을까? 그래서 나왔다. 더블 디스패치 라는 것이다.
 
+```java
 interface Post {
   void postOn(SNS s);
 }
@@ -296,6 +306,7 @@ static class Twitter implements SNS {
   }
 }
 ```
+
 기존의 코드들은 냅두고 두번째가 타입을 결정해야 되는 Facebook 클래스와 Twitter 클래스로 비지니스 로직을 옮겨놨다. 그리고 Post를 구현하고 있는 클래스에는 s.post(this) 이와 같이 자기 자신을 파라미터로 넘겨주면 된다.
 한마디로 첫번째 호출 되는 Post쪽에서 타입을 결정하고 두번째로 넘기는 그런 방식이다. 그래서 디스패치를 두번한다고 더블 디스패치라고 한다.
 만약 여기서 아까와 같이 SNS가 추가 되었다고 가정하자. 그럼 우리는 또다른 SNS 클래스를 구현만 해주면 된다.
@@ -313,6 +324,7 @@ static class Linkedin implements SNS {
   }
 }
 ```
+
 위와 같이 Linkedin 클래스만 작성해서 구현해주면 된다. Post 인터페이스와 그에 따른 구현체들은 수정할 필요 없이 좀 더 확장성 있게 만들 수 있게 되었다.
 
 출처: http://aoruqjfu.fun25.co.kr/index.php/post/1490 [머루의개발블로그]
