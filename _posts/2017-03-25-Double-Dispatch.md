@@ -55,6 +55,7 @@ public class Dispatch{
 >Quoting from Oracle Docs:
 >Definition: Two of the components of a method declaration comprise the method signature—the method's name and the parameter types.
 >![](https://i.stack.imgur.com/NLlbQ.png)
+>
 >자바에서 MethodSignature 는 메소드 이름 + 파라미터 이다. 반환값(return)은 포함하지 않는다.
 
 ```java
