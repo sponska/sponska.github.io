@@ -58,7 +58,7 @@ public class Dispatch{
 >
 >자바에서 MethodSignature 는 메소드 이름 + 파라미터 이다. 반환값(return)은 포함하지 않는다.
 
-```java
+{% highlight java linenos %}
 public class Dispatch{
  
   static abstract class Service{
@@ -85,7 +85,7 @@ public class Dispatch{
   }
  
 }
-```
+{% endhighlight %}
 
 위 프로그램에서 main을 실행하게 되면 어떤 클래스의 run 메소드가 실행될지는 컴파일 시점에 알 수 없다.그러나 실제 실행을 해보면 "1"이 출력될 것임은 자명하다. 이때 다이나믹 디스패치가 일어난다.
 
