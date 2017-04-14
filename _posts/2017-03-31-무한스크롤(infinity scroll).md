@@ -22,7 +22,7 @@ $(window).scroll(function () {
 ```
 
 ```javascript
-function getMatchHistoryList() {
+function getList() {
     $("#loading").html('목록을 불러오는중 입니다.');
        $.post("http://example.com",function (list) {
         if(list){
