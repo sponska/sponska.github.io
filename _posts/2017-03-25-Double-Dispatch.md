@@ -25,7 +25,7 @@ Double Dispatch
 
 # 정적인 디스패치 (Static Dispatch)
 
-```java
+{% highlight java linenos %}
 public class Dispatch{
  
   static class Service{
@@ -43,7 +43,7 @@ public class Dispatch{
   }
   
 }
-```
+{% endhighlight %}
 
 
 
