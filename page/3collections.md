@@ -18,6 +18,10 @@ type: page
 * [Effective Java](http://pigbrain.github.io/java/2016/08/08/EffectiveJava_on_Java)
 
 Effective Java 책을 잘 정리해놓은 블로그.
+
+##Git
+*[좋은 git 커밋 메시지를 작성하기 위한 7가지 약속](http://meetup.toast.com/posts/106)
+
 ## Comments
 
 {% include comments.html %}
