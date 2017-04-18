@@ -20,7 +20,8 @@ type: page
 Effective Java 책을 잘 정리해놓은 블로그.
 
 ##Git
-*[좋은 git 커밋 메시지를 작성하기 위한 7가지 약속](http://meetup.toast.com/posts/106)
+
+* [좋은 git 커밋 메시지를 작성하기 위한 7가지 약속](http://meetup.toast.com/posts/106)
 
 ## Comments
 
