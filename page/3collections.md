@@ -25,7 +25,7 @@ Effective Java 책을 잘 정리해놓은 블로그.
 
 ## AWS
 
-* [AWS-SUMMIT-SEOUL-2017](https://www.slideshare.net/awskorea/tag/aws-summit-seoul-2017/2)
+* [AWS-SUMMIT-SEOUL-2017 발표자료!](https://www.slideshare.net/awskorea/tag/aws-summit-seoul-2017/2)
 
 ## Comments
 
